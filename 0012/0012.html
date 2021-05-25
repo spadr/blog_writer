@@ -1,0 +1,50 @@
+<div id="toc"></div>
+<p>給水ポンプとそれを駆動するためのモータ＆コントローラ、静電容量式の土壌水分センサがユニットになっているWatering UnitをM5StickCで使ってみます。</p>
+<p>肝心のポンプの吐出量は約0.5L/minと家庭レベルのプランター園芸では十分な量です。</p>
+<p>例えば、 <a href="https://cococara.jp/20200920-01/">トマトの養液栽培では40〜50ccを10回程度の灌水量</a>なので、一日のポンプの稼働時間は合計で1分程度で済む計算になります。</p>
+<p>おそらく、モバイルバッテリーでも数日間は稼働ができるでしょう。</p>
+<h2>商品について</h2>
+<ul>
+<li>
+<p><a href="https://www.switch-science.com/catalog/6913/">M5Stack用 水分測定センサ付き給水ポンプユニット｜スイッチサイエンス</a></p>
+</li>
+<li>
+<p><a href="https://docs.m5stack.com/en/unit/watering">Watering | 公式ドキュメント</a></p>
+</li>
+<li>
+<p><a href="https://github.com/m5stack/M5Stack/tree/master/examples/Unit/WATERING">Wateringのライブラリ | Github </a></p>
+</li>
+</ul>
+<p><img alt="alt" src="/media/post_content_images/0012_00.jpg" /></p>
+<h2>サンプルコード</h2>
+<ul>
+<script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fspadr%2FM5%2Fblob%2Fmain%2FM5StickC%2Fwatering_unit%2Fwatering_unit.ino&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+<li><a href="https://github.com/spadr/M5/blob/main/M5StickC/watering_unit/watering_unit.ino">https://github.com/spadr/M5/blob/main/M5StickC/watering_unit/watering_unit.ino</a></li>
+</ul>
+<p>M5StickC用のサンプルコードを作成しました。</p>
+<h2>M5StickCでの使い方</h2>
+<h4>1.下記のURLからサンプルコードをダウンロードする</h4>
+<ul>
+<li><a href="https://github.com/spadr/M5">https://github.com/spadr/M5</a></li>
+</ul>
+<p><img alt="alt" src="/media/post_content_images/0006_05.jpg" /></p>
+<p>写真上部の矢印が指す"Code"をクリックしてメニューを出し、その中の"Download ZIP"をクリックするとダウンロード出来ます。ZIPファイルは任意のフォルダーにダウンロードして解凍して下さい。</p>
+<h4>2.サンプルコードをM5StickCに書き込む</h4>
+<p>上の手順で解凍されたフォルダー内の"M5StickC/watering_unit/watering_unit.ino"をArduinoIDE等で開き、M5StickCに書き込みます。</p>
+<h4>3.GroveでユニットとM5StickCを接続する</h4>
+<p>Groveに接続してください。</p>
+<h2>CANASPAD-IoTで使う方法</h2>
+<ul>
+    <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fspadr%2FCANASPAD-IoT_SAMPLE%2Fblob%2Fmain%2FM5StickC%2Fwatering_unit%2Fwatering_unit.ino&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+<li><a href="https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/watering_unit/watering_unit.ino">https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/watering_unit/watering_unit.ino</a></li>
+</ul>
+<p>Githubにもサンプルコードを記載しています。</p>
+<h2>土壌水分センサの校正</h2>
+<p><a href="https://qiita.com/Kosuke_Matsui/items/9b461a8b63593619aa51">静電容量式の土壌水分センサーの校正</a>を参考にしました。</p>
+<p>静電容量式の土壌水分センサは土壌種類やEC、温度、指で触れたかどうか等によって値が変動するようなのですが、あくまで家庭用です、ラフに校正をします。</p>
+<p>具体的には、水分量100%は水につけたとき、0%は空気中に置いたときとしました。
+それぞれの出力電圧は1.2V,1.6Vと<a href="https://qiita.com/Kosuke_Matsui/items/9b461a8b63593619aa51">参考</a>にしたサイトで扱われているセンサとあまり大差ない結果になりました。</p>
+<p>また、乾燥しているか否かの閾値は1.4Vにしましたが、実際に測定をしながら、調節していくほうが良いとおもいます。</p>
+<h2>おわりに</h2>
+<p>今回は水分測定センサ付き給水ポンプユニット Watering Unitを題材にしてCANASPAD-IoTのチュートリアルを作成しました。</p>
+<p>CANASPAD-IoTはマイコンを使ってIoTをプロトタイプしたり、センシングデータから相関ルールを探索するために便利なサービスです。無料なのでぜひご利用ください。</p>
