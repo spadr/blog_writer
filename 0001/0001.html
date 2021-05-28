@@ -1,0 +1,93 @@
+<p>
+    CANASPAD-IoTは、モノのインターネット(IoT)のためのプラットフォームです。<br>
+    IoTのアイデアをなるべく簡単にプロトタイプするためのサービスを提供します。
+    例えば、ArduinoやRaspberryPi等の安価なマイコンからデータを送信するだけで、
+    データをリアルタイムでグラフ化し、AI学習のためのデータセットを得られます。<br>
+    細かな設定は必要ありません。お手元に安価なマイコンを用意して、IoTを始めましょう。
+  </p>
+  <div id="toc"></div>
+  <br>
+  <h2>リクエストURLの作成＆送信</h2>
+  <p>
+    マイコンからCANASPAD-IoTへデータを送信するためにリクエストURLを作成します。<br>
+    例1 : http://iot.canaspad.com/data/<B> [Your Access Key] , [Device Name] , [Sensing Data] </B>/<br>
+    例2 : https://iot.canaspad.com/data/<B> [Your Access Key] , [Device Name] , [Sensing Data] </B>/<br>
+    <br>
+    上記の例のように、http://iot.canaspad.com/data/に続くURLを作成します。<br>
+    お手元のマイコンの機種によりHTTPリクエストの送信方法は異なりますが、
+    本ページではM5StackやM5StickCからHTTPリクエストの送信する方法を紹介します。<br>
+    なお、M5シリーズ以外のサンプルコードは下記のGithubから確認できます。<br>
+    <a href="https://github.com/spadr/CANASPAD-IoT_SAMPLE">[Github]マイコンのサンプルコード集</a><br>
+  </p>
+  <div class="module_code">▼ M5stickCを使用する場合</div>
+  <script src="https://gist-it.appspot.com/https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/http_client/http_client.ino?footer=no"></script>
+  <br>
+  <h2>サンプルコードの説明</h2>
+  <script src="https://gist-it.appspot.com/https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/http_client/http_client.ino?footer=no&amp;slice=0:4"></script>
+  <p>
+    ライブラリをインクルードしています。<br>
+    特別なライブラリは使用していないので、M5シリーズの開発環境を整っていれば動きます。<br>
+    M5Stackを使用する場合はM5Stack.h、M5StickCを使用する場合はM5StickC.hをインクルードしてください。
+  </p>
+  <br>
+  <script src="https://gist-it.appspot.com/https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/http_client/http_client.ino?footer=no&amp;slice=4:14"></script>
+  <p>
+    変数を宣言しています。<br>
+    私はPythonからプログラミングにハマった人間なので、変数宣言や行の最後に;を付けることに違和感を感じますが、
+    皆さんはどうでしょうか？Arduino言語では変数宣言と最後の;は、うっかり忘れてしまいます。<br>
+    "Your WIFI SSID"や"Your WIFI PASS"にはそれぞれ、" "の内側にお使いのWiFiのSSIDとパスワードを入力し、
+    "Your Access Key"は新規登録の時に送られてきたメールに記載があるので、そこからコピペしてください。<br>
+    また、sensor_valueという変数を宣言し、loop()でカウントアップしていますが実際にセンサーを使うことが出来る場合は、測定値を代入してください。
+  </p>
+  <br>
+  <script src="https://gist-it.appspot.com/https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/http_client/http_client.ino?footer=no&amp;slice=14:28"></script>
+  <p>
+    setup()は電源投入時に一度だけ実行されます。ライブラリの準備や初期化を行います。<br>
+  </p>
+  <br>
+  <script src="https://gist-it.appspot.com/https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/http_client/http_client.ino?footer=no&amp;slice=28:59"></script>
+  <p>
+    loop()でプログラムの実行を行います。<br>
+    URLにアクセスキーやデバイス名、測定値を記載して、HTTPClientで送信しています。<br>
+    正常に送信できたときは、httpCodeに200、payloadにUNIX時間が返ります。
+  </p>
+  <br>
+  <h2>送信したデータをCANASPAD-IoTで確認</h2>
+  <p>
+    　各ユーザー毎の<a href="https://app.canaspad.com/read">ホーム画面</a>にて確認できます。<br>
+    もし、表示が更新されていない場合はUPDATEボタンを押下してください。<br>
+    <img src="/media/post_content_images/img1.png" alt="home_img">
+  </p>
+  <br>
+  <h2>データをグラフとして表示</h2>
+  <p>
+      　各ユーザー毎の<a href="https://app.canaspad.com/graph">グラフ画面</a>にて確認できます。<br>
+    [Sensing Data]には"10,20,30"のように、複数の値を入れて送信することが出来ますが、
+    グラフに表示されるのは一番最初の値のみになります、ご注意ください。また、数値以外は表示できません。
+    もし、表示が更新されていない場合はUPDATEボタンを押下してください。<br>
+    <img src="/media/post_content_images/img2.png" alt="home_img">
+  </p>
+  <br>
+  <h2>データをCSVとしてダウンロードする</h2>
+  <p>
+    　<a href="https://app.canaspad.com/read">ホーム画面</a>のDOWNLOADボタンを押下してください。<br>
+    また、CANASPAD-IoTが受信したデータは一定期間蓄積した後、Eメールのの添付データとしてユーザーのもとへお届けいたします。<br>
+    Eメールにて送信済みのデータはホーム画面上からご確認いただくことはできませんので、添付データからの保存をお願いいたします。<br>
+    また、データの集計に役立つライブラリも公開しています。<a href="https://github.com/spadr/CANASPAD-IoT_add_functions">[Github]データの集計・可視化ライブラリ</a><br>
+  </p>
+  <br>
+  <h2>送信したデータを削除する</h2>
+  <p>
+    <a href="https://app.canaspad.com/read">ホーム画面</a>のDELETEボタンを押下してください。<br>
+  </p>
+  <br>
+  <h2>利用上の注意点</h2>
+  <p>
+    　当サービスの運営者は当サービスを利用する上で発生した損害およびその他の責任は一切負いませんので、予めご了承ください。<br>
+    具体的な注意点<br>
+    <ul>
+    <li>セキュアな環境が必要なデータを送信しない　→→　本サービスはIoTのラフな活用をテーマにしており、外気温や湿度など第三者に知られても問題のないデータを取り扱うことを前提にしています。</li>
+    <li>安定動作を期待しない　→→　本サービスは頻繁にアップデートを行う予定であり、メンテナンス中のデータが欠損する可能性があります。（場合により応相談）</li>
+    </ul>
+  <br>
+  </p>

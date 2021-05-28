@@ -1,0 +1,43 @@
+<div id="toc"></div>
+<p>ENV II HatはM5StickC用の環境センサモジュールで、温度、湿度、気圧、磁界の測定が可能です。</p>
+<h2>商品について</h2>
+<ul>
+<li>
+<p><a href="https://www.switch-science.com/catalog/6559/">M5StickC ENV II Hat（SHT30/BMP280/BMM150搭載）｜スイッチサイエンス</a></p>
+</li>
+<li>
+<p><a href="https://docs.m5stack.com/en/hat/hat_envII">ENV II HAT｜公式ドキュメント</a></p>
+</li>
+</ul>
+<p><img src="/media/post_content_images/0007_01_wriQPVD.jpg" alt="alt"></p>
+<p>表側です</p>
+<p><img src="/media/post_content_images/0007_02_wWqGxfF.jpg" alt="alt"></p>
+<p>裏側です</p>
+<p><img src="/media/post_content_images/0007_03_8TXxGPc.jpg" alt="alt"></p>
+<p>Hatなので差し込むだけで接続できます。ピンを間違えることはありません。</p>
+<h2>サンプルコード</h2>
+<ul>
+<li><a href="https://github.com/m5stack/M5-ProductExampleCodes/tree/master/Hat/ENVII_HAT/Arduino/ENVII_HAT">https://github.com/m5stack/M5-ProductExampleCodes/tree/master/Hat/ENVII_HAT/Arduino/ENVII_HAT</a></li>
+</ul>
+<p>Githubにサンプルコードがありました。</p>
+<h2>M5StickCでの使い方</h2>
+<p>1.下記のURLからサンプルコードをダウンロードする</p>
+<ul>
+<li><a href="https://github.com/m5stack/M5-ProductExampleCodes">https://github.com/m5stack/M5-ProductExampleCodes</a></li>
+</ul>
+<p><img src="/media/post_content_images/0006_05.jpg" alt="alt"></p>
+<p>写真上部の矢印が指す&quot;Code&quot;をクリックしてメニューを出し、その中の&quot;Download ZIP&quot;をクリックするとダウンロード出来ます。ZIPファイルは任意のフォルダーにダウンロードして解凍して下さい。</p>
+<p>2.サンプルコードをM5StickCに書き込む<br>
+上の手順で解凍されたフォルダー内の&quot;Hat/ENVII_HAT/Arduino/ENVII_HAT/ENVII_HAT.ino&quot;をArduinoIDE等で開き、M5StickCに書き込みます。</p>
+<p><img src="/media/post_content_images/0007_03_8TXxGPc.jpg" alt="alt"></p>
+<p>データの送信手順については<a href="/post/1/">CANASPAD-IoTの使い方</a>を確認してください。</p>
+<h2>温度の測定精度について</h2>
+<p>サンプルコードを利用して屋内の気温を測定してみましたが、他の温度計と比べて1~2℃高い値が出るようです。軽く分解して中身を確認します。</p>
+<p><img src="/media/post_content_images/0007_04_U4dFmYK.jpg" alt="alt"></p>
+<p>写真上側中央の黒い四角形が温度を測定しているSHT30のようですが、近接する基板に切れ目が入っています。
+おそらく、他の熱源から熱が伝わらないようにする工夫なのでしょう。
+基板をむき出しにした状態で室温を確認しますが、我が家の環境ではまだ、1,2℃高い状態です。</p>
+<p><img src="/media/post_content_images/0007_06_HNV4hlq.jpg" alt="alt"></p>
+<p>最終的には、ファンの風をあてて室温を測ることで、それらしい値にすることができました。</p>
+<p>結論としては、温度の測定精度には難があり、常にファンの風をあてて使うか、無風状態にして校正をする必要がありそうです。</p>
+<p>Hatは温度センサをマイコン本体の熱源に近づけてしまうようなの形状になっているので、それが根本の問題なのかもしれません。なので、特段Hatを使う必要がないのであれば、通常のGrove接続タイプの温度センサを利用するのが無難でしょう。</p>

@@ -1,0 +1,124 @@
+<div id="toc"></div>
+<p>ADC HatはM5StickC用のADコンバータです。<br>
+入力電圧は0－12V,分解能は16bit(0-65535)と高精度で計測することが出来ます。<br>
+M5StickC本体のADCは0-3.3V,12bit(0-4095)なのでそれ以上の電圧や精度が求められる用途に適します。</p>
+<h2>商品について</h2>
+<ul>
+<li>
+<p><a href="https://www.switch-science.com/catalog/6071/">M5StickC ADC Hat（ADS1100搭載）｜スイッチサイエンス</a></p>
+</li>
+<li>
+<p><a href="https://docs.m5stack.com/en/hat/hat-adc">ADC Hat｜公式ドキュメント</a></p>
+</li>
+</ul>
+<p><img src="/media/post_content_images/0006_02.jpg" alt="alt"></p>
+<p>表側です</p>
+<p><img src="/media/post_content_images/0006_03.jpg" alt="alt"></p>
+<p>裏側です</p>
+<p><img src="/media/post_content_images/0006_04.jpg" alt="alt"></p>
+<p>Hatなので差し込むだけで接続できます。ピンを間違えることはありません。</p>
+<h2>サンプルコード</h2>
+<ul>
+<li><a href="https://github.com/m5stack/M5StickC/tree/master/examples/Hat/ADC">https://github.com/m5stack/M5StickC/tree/master/examples/Hat/ADC</a></li>
+</ul>
+<p>Githubにサンプルコードがありました。</p>
+<h2>M5StickCでの使い方</h2>
+<p>1.下記のURLからサンプルコードをダウンロードする</p>
+<ul>
+<li><a href="https://github.com/m5stack/M5StickC">https://github.com/m5stack/M5StickC</a></li>
+</ul>
+<p><img src="/media/post_content_images/0006_05.jpg" alt="alt"></p>
+<p>写真上部の矢印が指す&quot;Code&quot;をクリックしてメニューを出し、その中の&quot;Download ZIP&quot;をクリックするとダウンロード出来ます。ZIPファイルは任意のフォルダーにダウンロードして解凍して下さい。</p>
+<p>2.サンプルコードをM5StickCに書き込む<br>
+上の手順で解凍されたフォルダー内の&quot;examples/Hat/ADC/ADC.ino&quot;をArduinoIDE等で開き、M5StickCに書き込みます。</p>
+<p>3.プラスとマイナスに注意して計測対象のリード線を接続する</p>
+<p><img src="/media/post_content_images/0006_06.jpg" alt="alt"></p>
+<p>写真上部のねじを緩めてリード線を接続してください。</p>
+<h2>CANASPAD-IoTで使う方法</h2>
+<p>サンプルコードを参考にしました。
+<script src="https://gist-it.appspot.com/https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/ADC_Hat/ADC_Hat.ino?footer=no"></script>
+<ul>
+<li><a href="https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/ADC_Hat/">https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/ADC_Hat/</a></li>
+</ul>
+<script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fspadr%2FCANASPAD-IoT_SAMPLE%2Fblob%2Fmain%2FM5StickC%2FADC_Hat%2FADC_Hat.ino&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+<h2>直線性の検証</h2>
+<p>早速、上記のコードを使ってCANASPAD-IoTにデータを送信してみましょう。
+データの送信手順は<a href="/post/1/">CANASPAD-IoTの使い方</a>を確認してください。
+下図は入力電圧を1Vから11Vまで1V刻みに変化させ、CANASPAD-IoTにデータを送信したときのグラフです。直線性はいい感じです。<br>
+<img src="/media/post_content_images/0006_07_626Fdoh.png" alt="alt"></p>
+<p>次に、CANASPAD-IoTからデータをダウンロードして、EXCELで近似を確認しましょう。ダウンロードの際にはRAWデータとRESHAPEデータを選択可能です。今回はデータを自動整形してくれてあるRESHAPEデータを選択します。
+データのダウンロード手順は<a href="/post/1/">CANASPAD-IoTの使い方</a>を確認してください。</p>
+<p>RESHAPEからは今回だと以下のようなデータが出力されます。</p>
+<table class="table table-striped">
+<thead>
+<tr>
+<th>---</th>
+<th>ADC_Hat_col01</th>
+<th>ADC_Hat_col02</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2021/5/11 9:54</td>
+<td>998</td>
+<td>2479</td>
+</tr>
+<tr>
+<td>2021/5/11 9:55</td>
+<td>2006</td>
+<td>4981</td>
+</tr>
+<tr>
+<td>2021/5/11 9:56</td>
+<td>2972</td>
+<td>7378</td>
+</tr>
+<tr>
+<td>2021/5/11 9:57</td>
+<td>3980</td>
+<td>9882</td>
+</tr>
+<tr>
+<td>2021/5/11 9:58</td>
+<td>4968</td>
+<td>12334</td>
+</tr>
+<tr>
+<td>2021/5/11 9:59</td>
+<td>5953</td>
+<td>14779</td>
+</tr>
+<tr>
+<td>2021/5/11 10:00</td>
+<td>6932</td>
+<td>17209</td>
+</tr>
+<tr>
+<td>2021/5/11 10:01</td>
+<td>7951</td>
+<td>19739</td>
+</tr>
+<tr>
+<td>2021/5/11 10:02</td>
+<td>8916</td>
+<td>22134</td>
+</tr>
+<tr>
+<td>2021/5/11 10:03</td>
+<td>9923</td>
+<td>24634</td>
+</tr>
+<tr>
+<td>2021/5/11 10:04</td>
+<td>10906</td>
+<td>27075</td>
+</tr>
+</tbody>
+</table>
+
+<p>このデータを使ってグラフを作成しました。</p>
+<p><img src="/media/post_content_images/0006_08.png" alt="alt"></p>
+<p>近似式からも直線性が良好であることが確認できます。</p>
+<h2>おわりに</h2>
+<p>今回はM5StickC ADC Hatを題材にしてCANASPAD-IoTのチュートリアルを作成しました。</p>
+<p>CANASPAD-IoTはマイコンを使ってIoTをプロトタイプしたり、センシングデータから相関ルールを探索するために便利なサービスです。無料なのでぜひご利用ください。</p>

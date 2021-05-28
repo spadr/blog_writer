@@ -17,8 +17,10 @@
 </ul>
 <p><img alt="alt" src="/media/post_content_images/0012_00.jpg" /></p>
 <h2>サンプルコード</h2>
+
+<script src="https://gist-it.appspot.com/https://github.com/spadr/M5/blob/main/M5StickC/watering_unit/watering_unit.ino"></script>
+
 <ul>
-<script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fspadr%2FM5%2Fblob%2Fmain%2FM5StickC%2Fwatering_unit%2Fwatering_unit.ino&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 <li><a href="https://github.com/spadr/M5/blob/main/M5StickC/watering_unit/watering_unit.ino">https://github.com/spadr/M5/blob/main/M5StickC/watering_unit/watering_unit.ino</a></li>
 </ul>
 <p>M5StickC用のサンプルコードを作成しました。</p>
@@ -34,8 +36,8 @@
 <h4>3.GroveでユニットとM5StickCを接続する</h4>
 <p>Groveに接続してください。</p>
 <h2>CANASPAD-IoTで使う方法</h2>
+<script src="https://gist-it.appspot.com/https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/watering_unit/watering_unit.ino?footer=no"></script>
 <ul>
-    <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fspadr%2FCANASPAD-IoT_SAMPLE%2Fblob%2Fmain%2FM5StickC%2Fwatering_unit%2Fwatering_unit.ino&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 <li><a href="https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/watering_unit/watering_unit.ino">https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/watering_unit/watering_unit.ino</a></li>
 </ul>
 <p>Githubにもサンプルコードを記載しています。</p>
@@ -44,7 +46,9 @@
 <p>静電容量式の土壌水分センサは土壌種類やEC、温度、指で触れたかどうか等によって値が変動するようなのですが、あくまで家庭用です、ラフに校正をします。</p>
 <p>具体的には、水分量100%は水につけたとき、0%は空気中に置いたときとしました。
 それぞれの出力電圧は1.2V,1.6Vと<a href="https://qiita.com/Kosuke_Matsui/items/9b461a8b63593619aa51">参考</a>にしたサイトで扱われているセンサとあまり大差ない結果になりました。</p>
-<p>また、乾燥しているか否かの閾値は1.4Vにしましたが、実際に測定をしながら、調節していくほうが良いとおもいます。</p>
+<script src="https://gist-it.appspot.com/https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/watering_unit/watering_unit.ino?footer=no&amp;slice=51:54"></script>
+<p>また、乾燥しているか否かの閾値は1.4Vに相当する50%にしましたが、実際に測定をしながら、調節していくほうが良いとおもいます。</p>
+<script src="https://gist-it.appspot.com/https://github.com/spadr/CANASPAD-IoT_SAMPLE/blob/main/M5StickC/watering_unit/watering_unit.ino?footer=no&amp;slice=67:68"></script>
 <h2>おわりに</h2>
 <p>今回は水分測定センサ付き給水ポンプユニット Watering Unitを題材にしてCANASPAD-IoTのチュートリアルを作成しました。</p>
 <p>CANASPAD-IoTはマイコンを使ってIoTをプロトタイプしたり、センシングデータから相関ルールを探索するために便利なサービスです。無料なのでぜひご利用ください。</p>
